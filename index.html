@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Avaliação — MR3 Embu</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F3EF;--surface:#FFFFFF;--border:#E2E0D8;--tp:#1A1917;--ts:#6B6860;--tt:#A09D97;--blue:#1B4FCC;--bl:#EBF0FD;--green:#0D6E4A;--gl:#E6F5EE;--amber:#B45309;--al:#FEF3E2;--red:#C0392B;--rl:#FDECEB;--purple:#5B21B6;--pl:#EDE9FE;--r:10px;--rs:6px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tp);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;}
+.ph{background:var(--tp);color:#fff;padding:20px 20px 18px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+.ph-text .lbl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px;font-family:'DM Mono',monospace;}
+.ph-text h1{font-size:18px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:2px;}
+.ph-text .sub{font-size:12px;color:rgba(255,255,255,.5);}
+.ph-qr{flex-shrink:0;background:white;border-radius:6px;padding:5px;width:68px;height:68px;display:flex;align-items:center;justify-content:center;}
+.ph-qr svg{width:58px;height:58px;}
+.ct{padding:16px;max-width:680px;margin:0 auto;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:12px;}
+.fl{font-size:10px;font-weight:600;color:var(--tt);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;display:block;font-family:'DM Mono',monospace;}
+.fi{width:100%;border:1px solid var(--border);border-radius:var(--rs);padding:9px 12px;font-size:13px;background:var(--bg);color:var(--tp);font-family:'DM Sans',sans-serif;transition:border-color .15s;}
+.fi:focus{outline:none;border-color:var(--blue);}
+.sw{position:relative;margin-bottom:12px;}
+.sw:last-child{margin-bottom:0;}
+.sw select{width:100%;border:1px solid var(--border);border-radius:var(--rs);padding:9px 32px 9px 12px;font-size:13px;background:var(--bg);color:var(--tp);font-family:'DM Sans',sans-serif;cursor:pointer;-webkit-appearance:none;appearance:none;}
+.sw select:focus{outline:none;border-color:var(--blue);}
+.sw::after{content:'▾';position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--tt);pointer-events:none;font-size:11px;}
+.bp{width:100%;border:none;border-radius:var(--rs);padding:11px;font-size:13px;font-weight:600;background:var(--tp);color:#fff;cursor:pointer;margin-top:4px;font-family:'DM Sans',sans-serif;transition:opacity .15s;}
+.bp:hover{opacity:.88;}
+.bp:disabled{opacity:.35;cursor:not-allowed;}
+.bn{flex:1;border:1px solid var(--border);border-radius:var(--rs);padding:9px;font-size:13px;background:var(--surface);color:var(--ts);cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s;}
+.bn:hover{background:var(--bg);}
+.bn.nx{background:var(--tp);color:#fff;border-color:var(--tp);font-weight:600;}
+.bn.nx:hover{opacity:.88;}
+.nr{display:flex;gap:8px;margin-top:12px;}
+.sl{font-size:10px;font-weight:600;color:var(--tt);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;font-family:'DM Mono',monospace;display:flex;align-items:center;gap:8px;}
+.sl::after{content:'';flex:1;height:1px;background:var(--border);}
+.pb{background:var(--border);border-radius:99px;height:3px;}
+.pf{height:3px;border-radius:99px;background:var(--blue);transition:width .4s ease;}
+.pi{display:flex;justify-content:space-between;margin-top:5px;}
+.pt{font-size:11px;color:var(--tt);font-family:'DM Mono',monospace;}
+.ag{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:14px 0;}
+.ab{border:1px solid var(--border);border-radius:var(--rs);padding:10px 6px 8px;text-align:center;cursor:pointer;background:var(--bg);transition:all .15s;}
+.ab:hover{border-color:var(--blue);background:var(--bl);}
+.ab.sel{border-color:var(--blue);background:var(--bl);}
+.an{font-size:22px;font-weight:600;color:var(--tp);line-height:1;font-family:'DM Mono',monospace;}
+.ab.sel .an{color:var(--blue);}
+.alk{font-size:10px;color:var(--ts);line-height:1.3;margin-top:4px;}
+.ab.sel .alk{color:var(--blue);}
+.af{font-size:9px;color:var(--tt);margin-top:3px;line-height:1.3;font-style:italic;}
+.cb{background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);padding:12px;margin-bottom:12px;}
+.cb ul{list-style:none;}
+.cb li{font-size:12px;color:var(--tp);padding:3px 0 3px 14px;position:relative;line-height:1.5;}
+.cb li::before{content:"·";position:absolute;left:2px;color:var(--tt);font-weight:600;}
+.cmtxt{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 var(--rs) var(--rs) 0;padding:12px 14px;font-size:13px;color:var(--tp);line-height:1.7;margin-bottom:8px;white-space:pre-wrap;}
+.ex{display:inline;background:var(--al);border:1px dashed var(--amber);border-radius:3px;padding:1px 6px;font-size:11px;color:var(--amber);cursor:text;}
+.pt2{color:var(--amber);font-weight:600;}
+.bc{border:1px solid var(--border);border-radius:var(--rs);padding:7px 14px;font-size:12px;background:var(--surface);color:var(--ts);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.bc:hover{background:var(--bg);}
+.bc.ok{background:var(--gl);border-color:var(--green);color:var(--green);}
+.ir{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bl);border-radius:var(--rs);margin-bottom:12px;}
+.ir span{font-size:12px;color:var(--blue);line-height:1.4;}
+.nd{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap;}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--border);}
+.dot.dn{background:var(--green);}
+.dot.cr{background:var(--blue);}
+.cph{margin-bottom:14px;}
+.ctg{font-size:10px;color:var(--tt);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
+.ctt{font-size:16px;font-weight:600;color:var(--tp);margin-bottom:6px;}
+.cdf{font-size:12px;color:var(--ts);line-height:1.55;padding:10px 12px;background:var(--bg);border-radius:var(--rs);border-left:3px solid var(--border);}
+.sr{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);}
+.sr:last-child{border-bottom:none;}
+.sc{flex:1;}
+.scn{font-size:13px;color:var(--tp);}
+.sct{font-size:10px;color:var(--tt);font-family:'DM Mono',monospace;margin-top:1px;}
+.np{font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;font-family:'DM Mono',monospace;}
+.np1{background:var(--rl);color:var(--red);}
+.np2{background:var(--al);color:var(--amber);}
+.np3{background:var(--gl);color:var(--green);}
+.np4{background:var(--bl);color:var(--blue);}
+@media(max-width:480px){.ag{grid-template-columns:repeat(2,1fr);}.ab{padding:12px 6px 10px;}.an{font-size:26px;}}
+</style>
+</head>
+<body>
+<div class="ph">
+  <div class="ph-text">
+    <div class="lbl">Logística · MR3 Embu</div>
+    <h1>Guia de Avaliação de Desempenho</h1>
+    <div class="sub">Gestão William Brandão · 2026</div>
+  </div>
+  <div class="ph-qr" id="qr-wrap" title="Escaneie para abrir o guia"></div>
+</div>
+<div class="ct" id="root"></div>
+
+<script>
+// ── QR CODE (inline, sem dependência externa) ────────────────────────────────
+(function(){
+  const url = window.location.href;
+  const wrap = document.getElementById('qr-wrap');
+  const img = document.createElement('img');
+  img.style.cssText = 'width:58px;height:58px;border-radius:3px;';
+  img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=116x116&color=1A1917&bgcolor=ffffff&data=' + encodeURIComponent(url);
+  img.alt = 'QR Code';
+  wrap.appendChild(img);
+})();
+
+// ── DADOS ────────────────────────────────────────────────────────────────────
+const CARGOS={'Gerente de Logística':{setores:{'Logística':['Gestão Logística']}},'Supervisor de Logística':{setores:{'Logística':['Expedição','Recebimento','Gestão Logística','Gestão Manipulação'],'E-Commerce':['Gestão E-Commerce'],'Multicliente':['Pandora','Qmais']}},'Encarregado de Logística':{setores:{'Logística':['Recebimento','Reversa','RFID','Sorter','Picking/Espaço Beleza'],'E-Commerce':['Gestão E-Commerce','Omni Penha'],'Multicliente':['Lotus','Qmais']}},'Auxiliar de Logística':{setores:{'Logística':['Expedição','Recebimento','Manipulação - RFID','Manipulação - Loja','Sorter','Picking/Espaço Beleza','Estoque Remoto','Reversa','Encabidado'],'E-Commerce':['Expedição','Recebimento','Manipulação','Picking/Espaço Beleza','Armazenagem','Checkout','Reversa','Omni Penha'],'Multicliente':['Pandora','Qmais']}},'Conferente':{setores:{'Logística':['Expedição','Recebimento','Manipulação - Loja','Sorter','Picking/Espaço Beleza','Reversa'],'E-Commerce':['Checkout','Omni Penha'],'Multicliente':['Lotus','Qmais']}},'Operador de Empilhadeira':{setores:{'Logística':['Operador de Empilhadeira']}},'Assistente Administrativo':{setores:{'Logística':['Administrativo','Recebimento','Indiretos'],'Administrativo':['Faturamento','Agendamento','Compras'],'Multicliente':['CQ','Pandora','Qmais']}},'Auxiliar Administrativo':{setores:{'Logística':['Administrativo','Expedição','Gestão Manipulação','Indiretos','Picking/Espaço Beleza','Recebimento'],'Administrativo':['Compras'],'E-Commerce':['Administrativo'],'Transporte':['ADM Transportes']}},'Analista de Logística':{setores:{'Multicliente':['Pandora'],'E-Commerce':['Administrativo']}},'Analista de Facilities':{setores:{'Administrativo':['Facilities']}},'Especialista de Auditoria Interna':{setores:{'Administrativo':['Auditoria']}},'Oficial de Manutenção Predial':{setores:{'Administrativo':['Manutenção Predial']}},'Técnico em Segurança do Trabalho':{setores:{'Administrativo':['Segurança do Trabalho']}}};
+const LID=['Gerente de Logística','Supervisor de Logística','Encarregado de Logística'];
+const ANC=['Recorrente e sistemático','Frequente, melhora sob pressão','Consistente, independe de supervisão','Consistente + referência para outros'];
+const NL=['Não atende','Atende parcialmente','Atende','Supera'];
+
+// ── COMPETÊNCIAS LÍDERES ─────────────────────────────────────────────────────
+// Tom: direto, analítico, 3ª pessoa, baseado nos exemplos do Will
+// Notas 1-2: terminam com "Ponto de desenvolvimento:" + orientação clara
+// Notas 3-4: reconhecimento específico + campo [EXEMPLO] editável
+const CL=[
+{tag:'Liderança 1/7',title:'Engajamento da Equipe',
+def:'Estimula a equipe a se comprometer com metas de produtividade, qualidade e disciplina, mantendo o time motivado e focado nos resultados.',
+c:{1:['Equipe demonstra desânimo e baixa iniciativa de forma sistemática','Não realiza alinhamentos de metas com consistência','Comunica apenas ordens, sem explicar propósito ou contexto','Não reconhece resultados positivos do time','Time não sabe com clareza o que se espera dele'],2:['Engaja de forma pontual, sem consistência','Reconhece resultados apenas sob pressão','Motivação do time oscila conforme o humor e a presença do líder','Alinhamentos superficiais e pouco frequentes','Atua mais na cobrança do que no engajamento'],3:['Mantém o time alinhado às metas e comprometido com os resultados','Realiza alinhamentos regulares e explica o propósito','Reconhece conquistas de forma consistente','Cria um ambiente de responsabilidade genuíno','Time performa sem depender de cobrança constante'],4:['Equipe com alto nível de iniciativa e comprometimento','Desenvolve líderes informais dentro do time','Cria rotinas de engajamento que funcionam mesmo na sua ausência','Time performa bem mesmo nos cenários mais difíceis','Resultados da equipe falam por si só']},
+t:{1:n=>`${n} não consegue manter o time engajado com as metas do setor. A equipe demonstra baixa motivação e pouca iniciativa — reflexo da ausência de alinhamentos e reconhecimento consistentes.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} desenvolva rotinas claras de alinhamento, reconhecimento e comunicação de metas — para que o comprometimento do time não dependa da sua presença física.`,
+2:n=>`${n} engaja a equipe de forma pontual, mas o comprometimento não se sustenta na rotina. A motivação oscila conforme a pressão do momento e a cobrança direta do líder.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} torne o engajamento mais sistemático — alinhamentos regulares, reconhecimento frequente e metas comunicadas com clareza, não só quando o volume aperta.`,
+3:n=>`${n} mantém o time alinhado e comprometido com os resultados do setor. Os alinhamentos são regulares, o reconhecimento é consistente e o time performa sem depender de cobrança constante. [EXEMPLO] O engajamento da equipe é reflexo direto da sua atuação.`,
+4:n=>`${n} tem uma equipe visivelmente engajada e comprometida — os resultados falam por si só. O time opera com alto nível de iniciativa e o engajamento se sustenta mesmo nos momentos mais difíceis. [EXEMPLO] Desenvolve líderes informais e cria rotinas que funcionam mesmo na sua ausência.`}},
+
+{tag:'Liderança 2/7',title:'Planejamento e Organização da Rotina',
+def:'Organiza a operação de forma estruturada, distribui recursos conforme a demanda e reduz improvisos ou retrabalhos.',
+c:{1:['Inicia turnos sem plano definido de forma recorrente','Não dimensiona recursos para a demanda do dia','Atua de forma reativa — apaga incêndio em vez de prevenir','Retrabalho e desorganização são frequentes no setor','Não antecipa riscos ou gargalos operacionais'],2:['Planeja apenas o básico, sem visão de curto prazo','Distribuição de recursos genérica e sem critério','Reage tardiamente a problemas que eram antecipáveis','Planejamento existe mas não é compartilhado com a equipe','Improvisos ainda acima do aceitável'],3:['Organiza os turnos com antecedência e distribui recursos conforme a demanda','Antecipa gargalos e age antes de impactar a operação','Compartilha o planejamento com a equipe','Improvisos são a exceção, não a regra','Operação tem previsibilidade'],4:['Cria e executa planos com precisão e consistência','Usa indicadores para planejar e ajustar recursos com antecedência','Tem alternativas preparadas para cenários adversos','Time opera com segurança e previsibilidade consistente','Referência de organização na operação']},
+t:{1:n=>`${n} ainda não organiza a operação de forma estruturada. Os turnos começam sem plano, os recursos são alocados de forma inadequada e a atuação é essencialmente reativa. Improvisos e retrabalho são frequentes.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} desenvolva o hábito de planejar com antecedência, distribuir recursos com critério e antecipar os principais gargalos antes de impactarem a operação.`,
+2:n=>`${n} planeja o básico do dia a dia, mas sem visão de curto prazo e sem compartilhar o plano com a equipe. A reação a problemas costuma ser tardia, gerando improvisos que seriam evitáveis.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} evolua para um planejamento mais estruturado e preventivo — com recursos dimensionados com critério e plano comunicado ao time com antecedência.`,
+3:n=>`${n} organiza a operação de forma estruturada. Planeja com antecedência, distribui recursos conforme a demanda e antecipa gargalos antes de virarem problema. [EXEMPLO] A equipe tem clareza do que está planejado e os improvisos são a exceção.`,
+4:n=>`${n} organiza bem a operação — planeja com antecedência, distribui recursos com critério e antecipa gargalos antes de impactarem o setor. [EXEMPLO] O time opera com previsibilidade e tem alternativas prontas para cenários adversos.`}},
+
+{tag:'Liderança 3/7',title:'Delegação e Acompanhamento',
+def:'Distribui tarefas com clareza, define prioridades e verifica a execução, garantindo que as atividades sejam realizadas dentro do padrão da operação.',
+c:{1:['Centraliza tarefas ou delega sem clareza de responsabilidade e prazo','Equipe não sabe o que é prioridade nem o que se espera de cada um','Cobra resultados sem ter feito delegação clara','Não acompanha a execução das tarefas delegadas','Gera sobrecarga em alguns e ociosidade em outros de forma recorrente'],2:['Delega sem deixar claras as prioridades e o nível de responsabilidade','Acompanhamento da execução é inconsistente','Repasses feitos verbalmente sem confirmar entendimento','Delegação existe, mas gera mais ruído do que clareza','Interfere na execução por não confiar no que delegou'],3:['Define responsáveis, prazos e prioridades com clareza','Distribui tarefas conforme as competências da equipe','Acompanha a execução sem microgerenciar','Time opera com autonomia dentro do esperado','Delegação funciona e gera resultado sem desgaste'],4:['Delega de forma estratégica, desenvolvendo a equipe no processo','Time executa com autonomia e responsabilidade real','Acompanhamento gera visibilidade clara para a gestão acima','Referência de delegação eficiente na operação','Usa a delegação como ferramenta de crescimento']},
+t:{1:n=>`${n} tem dificuldade sistemática em delegar com clareza. As tarefas chegam sem definição de prioridade, prazo ou responsabilidade, gerando confusão na execução e cobranças sem respaldo.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} seja mais claro nas orientações, defina prioridades com critério e acompanhe a execução de forma regular — sem precisar centralizar para ter controle.`,
+2:n=>`${n} delega, mas sem garantir que o time entendeu. Os repasses são genéricos, o acompanhamento é inconsistente e os ruídos ainda são mais frequentes do que deveriam.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} seja mais criterioso na delegação — definindo com clareza o que, para quem, com qual prazo e nível de responsabilidade — e estruture um acompanhamento mais regular.`,
+3:n=>`${n} delega com clareza e acompanha a execução de forma regular. O time tem clareza das prioridades e responsabilidades e opera com autonomia dentro do esperado. [EXEMPLO] A delegação funciona e gera resultado sem desgaste.`,
+4:n=>`${n} usa a delegação de forma estratégica, desenvolvendo a equipe no processo. O time opera com autonomia real e o acompanhamento gera visibilidade clara para a gestão acima. [EXEMPLO] Referência de delegação eficiente na operação.`}},
+
+{tag:'Liderança 4/7',title:'Controle e Ação sobre Indicadores e Processos',
+def:'Monitora os indicadores da área e assegura o cumprimento das rotinas e processos críticos, atuando quando houver desvios de meta, falhas de execução ou não conformidades.',
+c:{1:['Não monitora os indicadores da área com regularidade','Desvios de meta passam sem ação ou análise','Não conformidades são toleradas sem intervenção','Gestão baseada em percepção, não em dados','Indicadores existem, mas não são usados para decidir'],2:['Monitora de forma superficial','Age sobre desvios apenas quando a situação já está crítica','Conhece os números, mas não os usa para antecipar','Acompanhamento de processos críticos é inconsistente','Gestão ainda mais reativa do que orientada por dados'],3:['Monitora os indicadores com regularidade','Age sobre desvios antes que se agravem','Garante o cumprimento das rotinas e processos críticos','Usa dados para embasar decisões','Gestão do setor tem consistência e visibilidade'],4:['Monitora e age com alto nível de estrutura','Antecipa desvios antes de virarem problema','Usa os dados para propor melhorias, não só para corrigir','Gera visibilidade clara para a gestão acima','Referência de gestão orientada por dados']},
+t:{1:n=>`${n} ainda não usa os indicadores como ferramenta de gestão. Desvios de meta e falhas de processo passam sem ação e a gestão é baseada mais em percepção do que em dados.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} monitore os indicadores com regularidade e aja sobre os desvios antes que se agravem — usando os números como base para as decisões, não como registro histórico.`,
+2:n=>`${n} monitora os indicadores, mas de forma superficial. Age sobre desvios quando a situação já está crítica, o que indica que os números não estão sendo usados para antecipar — só para registrar.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} evolua do monitoramento passivo para a gestão ativa — agindo mais cedo sobre os desvios e usando os dados para embasar as decisões do setor.`,
+3:n=>`${n} monitora os indicadores com regularidade e age sobre os desvios antes que se agravem. Garante o cumprimento das rotinas e processos críticos e usa os dados para embasar as decisões. [EXEMPLO] A gestão do setor tem consistência e visibilidade — inclusive nas análises preditivas.`,
+4:n=>`${n} monitora os indicadores com regularidade e costuma agir sobre os desvios antes que se agravem. A gestão tem consistência e visibilidade. [EXEMPLO] Usa os dados para propor melhorias, não só para corrigir — e gera visibilidade clara para a gestão acima sobre o desempenho do setor.`}},
+
+{tag:'Liderança 5/7',title:'Desenvolvimento e Orientação da Equipe',
+def:'Monitora o desempenho individual e coletivo, realiza feedbacks, corrige desvios de forma construtiva e promove o desenvolvimento contínuo da equipe.',
+c:{1:['Não realiza feedbacks individuais com consistência','Desvios de comportamento e desempenho são tolerados sem intervenção','Não acompanha a evolução individual dos colaboradores','Time não sabe onde precisa melhorar','Desenvolvimento da equipe não é prioridade na sua atuação'],2:['Feedbacks esporádicos e sem estrutura','Aponta erros sem orientação clara de como melhorar','Acompanhamento individual superficial','Feedbacks existem, mas não geram evolução visível no time','Desenvolvimento ainda depende mais do colaborador do que do líder'],3:['Realiza feedbacks com regularidade, de forma clara e construtiva','Monitora o desempenho individual e age quando há desvio','Time sabe o que precisa melhorar e recebe orientação para isso','Evolução visível no time ao longo do ciclo','Na maioria das vezes, faz de forma consistente — ainda que informal'],4:['Feedbacks estruturados e frequentes geram evolução mensurável no time','Identifica talentos e os desenvolve para assumir mais responsabilidade','Referência de desenvolvimento de pessoas na operação','Líderes informais emergem sob sua gestão','Time evolui coletivamente a cada ciclo']},
+t:{1:n=>`${n} ainda não atua de forma consistente no desenvolvimento da equipe. Feedbacks são raros, desvios de desempenho são tolerados sem intervenção e o time não tem clareza do que se espera de cada um.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} desenvolva a prática de feedbacks regulares e construtivos, monitorando o desempenho individual de forma mais próxima e orientando o time com clareza sobre os pontos de melhoria.`,
+2:n=>`${n} realiza feedbacks de forma esporádica e sem estrutura. Aponta os erros quando necessário, mas sem orientação clara de como melhorar. O desenvolvimento ainda depende mais da iniciativa do colaborador.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} torne os feedbacks mais frequentes e orientados para o crescimento — não só para a correção de erros.`,
+3:n=>`${n} realiza feedbacks com regularidade e de forma construtiva — ainda que muitas vezes de maneira informal. O time sabe o que se espera e os pontos que precisa melhorar. [EXEMPLO] A evolução do time ao longo do ciclo é reflexo direto dessa atuação.`,
+4:n=>`${n} realiza feedbacks com regularidade e de forma construtiva, e o time sabe claramente o que se espera de cada um. [EXEMPLO] Os feedbacks são consistentes e geram evolução visível — o time cresce coletivamente a cada ciclo.`}},
+
+{tag:'Liderança 6/7',title:'Melhoria Operacional',
+def:'Identifica de forma proativa oportunidades de melhoria e implementa ações que aumentem eficiência, qualidade e sustentabilidade de custos na operação.',
+c:{1:['Não identifica oportunidades de melhoria de forma sistemática','Atua de forma reativa, sem iniciativa para propor mudanças','Problemas recorrentes não geram análise de causa raiz','Operação permanece estagnada no ciclo','Melhorias dependem exclusivamente da gestão acima'],2:['Identifica oportunidades, mas não implementa','Propõe mudanças quando solicitado, raramente por iniciativa própria','Começa e não termina — falta continuidade nas ações','Análise superficial, sem aprofundamento na causa raiz','A intenção existe, mas não se traduz em execução'],3:['Identifica oportunidades de melhoria de forma proativa','Implementa ações com consistência e acompanha os resultados','Propõe mudanças baseadas em dados e observações concretas','Não espera ser demandado para agir','Evolução visível na eficiência ou qualidade do setor'],4:['Melhoria contínua é parte da rotina de gestão','Implementa mudanças com impacto real e sustentável','Envolve a equipe no processo de identificação e solução','Referência de iniciativa operacional','Setor evolui de forma consistente a cada ciclo']},
+t:{1:n=>`${n} ainda não demonstra iniciativa para identificar e implementar melhorias no setor. A operação permanece estagnada, os problemas recorrentes não geram análise e as mudanças dependem exclusivamente da gestão acima.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} desenvolva postura mais proativa na identificação e implementação de melhorias — propondo ações com base em dados concretos do setor, não esperando ser demandado.`,
+2:n=>`${n} identifica oportunidades de melhoria, mas as propostas ficam no campo da intenção. Há dificuldade em implementar e dar continuidade às ações iniciadas.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} evolua da identificação para a implementação — dando continuidade às ações iniciadas e acompanhando os resultados até a consolidação. O desafio não é identificar, é executar.`,
+3:n=>`${n} demonstra postura proativa na identificação e implementação de melhorias. Propõe mudanças baseadas em dados, implementa com consistência e acompanha os resultados. [EXEMPLO] Há evolução visível na eficiência ou qualidade do setor ao longo do ciclo.`,
+4:n=>`${n} tem melhoria contínua como parte da rotina de gestão. Implementa mudanças com impacto real, envolve a equipe no processo e não espera ser demandado para agir. [EXEMPLO] O setor evolui de forma consistente a cada ciclo.`}},
+
+{tag:'Liderança 7/7',title:'Colaboração entre Áreas',
+def:'Atua de forma colaborativa com outros líderes e setores do CD, contribuindo para soluções conjuntas e priorizando o resultado da empresa acima dos interesses exclusivos da própria área.',
+c:{1:['Prioriza os interesses da sua área de forma recorrente','Dificulta a colaboração com outros setores ou líderes','Não compartilha informações relevantes com outras áreas','Postura gera silos e conflitos entre setores','Resistência a demandas que beneficiam o todo mas impactam sua operação'],2:['Colabora quando solicitado, raramente por iniciativa própria','Participação em soluções conjuntas é passiva','Visão ainda muito centrada no próprio setor','Compartilha informações com outras áreas de forma incompleta','Colaboração existe, mas não é genuína'],3:['Colabora com outros líderes e setores de forma proativa','Compartilha informações e contribui para soluções conjuntas','Prioriza o resultado da empresa quando há conflito de interesse','Relacionamento com outros setores é positivo e construtivo','Visto como parceiro pelos demais líderes'],4:['Referência de colaboração entre áreas na operação','Antecipa necessidades de outros setores e age antes de ser solicitado','Constrói pontes e facilita a comunicação transversal','Setor reconhecido pelos demais como parceiro confiável','Postura contribui para a integração da operação como um todo']},
+t:{1:n=>`${n} ainda prioriza os interesses exclusivos da sua área em detrimento do resultado conjunto. A postura gera dificuldades na colaboração com outros setores e impacta processos que dependem de integração.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} desenvolva postura mais colaborativa — priorizando o resultado da operação como um todo e contribuindo de forma mais ativa para as soluções conjuntas.`,
+2:n=>`${n} colabora quando solicitado, mas raramente age por iniciativa própria. A participação em soluções conjuntas ainda é passiva e a visão permanece centrada no próprio setor.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} evolua para uma postura mais proativa na colaboração — compartilhando informações com mais fluidez e contribuindo de forma mais ativa para os resultados conjuntos.`,
+3:n=>`${n} colabora com outros líderes e setores de forma proativa. Por ser mais introspectivo, nem sempre age por iniciativa própria, mas o relacionamento com outros setores é positivo e construtivo — e quando acionado, contribui de forma genuína. [EXEMPLO]`,
+4:n=>`${n} colabora com outros líderes e setores de forma proativa. O relacionamento com outras áreas é positivo e construtivo e o setor é visto como parceiro pelos demais. [EXEMPLO] Antecipa necessidades de outros setores e facilita a comunicação transversal.`}},
+
+{tag:'Comportamental 1/5',title:'Postura e Exemplo',
+def:'Atua com respeito, coerência e responsabilidade, sustenta decisões da empresa, trata a equipe com imparcialidade e serve de referência positiva para o time.',
+c:{1:['Contradiz decisões da empresa na frente da equipe de forma recorrente','Comportamento não é coerente com o que exige da equipe','Trata colaboradores de forma desigual ou injusta','Postura gera desconfiança e falta de credibilidade no time','Registros de comportamento inadequado no ciclo'],2:['Sustenta decisões da empresa, mas com sinais de desconforto que chegam ao time','Trata a equipe com respeito, mas nem sempre com imparcialidade','Comportamento oscila sob pressão','Coerência entre discurso e prática ainda precisa evoluir','Exemplo dado é inconsistente em algumas situações'],3:['Atua com respeito, coerência e responsabilidade de forma consistente','Sustenta as decisões da empresa independente da opinião pessoal','Trata a equipe com imparcialidade e justiça','Comportamento coerente com o que exige do time','É referência positiva de postura para os colaboradores'],4:['Postura exemplar que influencia positivamente o clima e a cultura do setor','Exige do time o mesmo padrão que pratica','Trata todos com imparcialidade — e o time percebe isso','Cada vez mais, o time caminha na mesma linha de pensamento','Coerência entre discurso e prática é constante e perceptível']},
+t:{1:n=>`${n} apresenta inconsistências de postura e comportamento que comprometem a credibilidade como liderança. Contradições entre o que exige e o que pratica, tratamento desigual ou comportamentos inadequados sob pressão são recorrentes e já foram sinalizados no ciclo.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} desenvolva maior coerência entre sua postura e o que exige da equipe — sustentando as decisões da empresa com responsabilidade e construindo um comportamento que sirva de referência positiva para o time.`,
+2:n=>`${n} mantém postura adequada na maioria das situações, mas ainda oscila sob pressão ou em momentos de discordância. A inconsistência chega ao time e impacta a credibilidade.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} desenvolva maior consistência de postura — especialmente nas situações mais desafiadoras — sustentando as decisões da empresa e mantendo o exemplo independente do contexto.`,
+3:n=>`${n} tem uma postura que influencia positivamente a cultura do setor. Trata todos com imparcialidade, exige do time o mesmo padrão que pratica e o time percebe isso. [EXEMPLO] Cada vez mais, o time caminha na mesma linha de pensamento.`,
+4:n=>`${n} tem postura exemplar — trata todos com imparcialidade, sustenta as decisões da empresa com coerência e o time percebe isso no dia a dia. [EXEMPLO] Exige do time o mesmo padrão que pratica, e cada vez mais o time está na mesma linha de pensamento.`}},
+
+{tag:'Comportamental 2/5',title:'Gestão de Conflitos',
+def:'Conduz divergências e conversas difíceis com maturidade e respeito, não evitando posicionamentos necessários e buscando soluções que promovam cooperação e alinhamento.',
+c:{1:['Evita conflitos e conversas difíceis de forma sistemática','Não se posiciona diante de situações que exigem intervenção','Conflitos se prolongam por omissão da liderança','Quando intervém, agrava a situação','Time perde referência pela ausência de posicionamento'],2:['Intervém em conflitos apenas quando a situação já está crítica','Conduz conversas difíceis com dificuldade de manter a posição','Posicionamento existe, mas falta firmeza e clareza','Resolução demora mais do que deveria','Gestão de conflitos ainda é reativa'],3:['Conduz divergências com maturidade e respeito','Não evita conversas difíceis quando necessárias','Se posiciona com clareza e mantém a posição com coerência','Conflitos resolvidos sem prolongamento desnecessário','Time percebe que a liderança está presente e atuante'],4:['Conduz conversas difíceis com maturidade e respeito','Não evita os posicionamentos necessários e mantém a posição com coerência','Time percebe isso no dia a dia','Às vezes a emoção fala mais alto, mas não compromete a postura geral','Referência de equilíbrio na resolução de conflitos']},
+t:{1:n=>`${n} demonstra dificuldade sistemática em lidar com conflitos. A tendência de evitar posicionamentos necessários faz com que situações se prolonguem sem resolução, gerando instabilidade no time.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} desenvolva a habilidade de intervir em conflitos com mais prontidão e conduzir conversas difíceis com maturidade — posicionando-se com clareza mesmo nas situações mais desconfortáveis.`,
+2:n=>`${n} intervém em conflitos, mas costuma agir de forma reativa — quando a situação já está crítica. Falta firmeza e clareza nas conversas difíceis, o que por vezes prolonga os conflitos além do necessário.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} desenvolva maior proatividade na gestão de conflitos — agindo antes que as situações se agravem e conduzindo as conversas com mais clareza e firmeza.`,
+3:n=>`${n} conduz divergências e conversas difíceis com maturidade e respeito. Não evita os posicionamentos necessários, mantém a posição com coerência e resolve conflitos sem prolongamento. [EXEMPLO] O time percebe que a liderança está presente e atuante.`,
+4:n=>`${n} conduz divergências e conversas difíceis com maturidade e respeito. Não evita posicionamentos necessários, tenta manter a posição com coerência e o time percebe isso. [EXEMPLO] Às vezes a emoção fala um pouco mais alto, mas isso não compromete a postura geral — e esse autoconhecimento é o que diferencia.`}},
+
+{tag:'Comportamental 3/5',title:'Comunicação Clara na Operação',
+def:'Mantém comunicação clara e transparente com a equipe e com seus superiores, compartilhando orientações, informações relevantes e atualizações sobre a rotina e os resultados da área.',
+c:{1:['Comunicação com a equipe é fragmentada e inconsistente','Informações relevantes não chegam ao time de forma adequada','Reporte para a gestão acima é raro ou reativo','Ruídos de comunicação são frequentes no setor','Time não sabe o que está acontecendo'],2:['Comunica o básico, mas sem estrutura ou consistência','Reporte para a gestão feito apenas quando cobrado','Orientações chegam ao time de forma incompleta ou tardia','Comunicação melhora sob pressão, cai na rotina','Ruídos mais frequentes do que deveriam'],3:['Mantém comunicação clara e consistente com equipe e gestão','Compartilha orientações, atualizações e resultados com regularidade','Reporte para a gestão é proativo','Não esconde os problemas — tanto para cima quanto para baixo','Comunicação funciona como ferramenta de gestão'],4:['Comunicação clara, estruturada e que gera visibilidade real para a gestão','Não esconde os problemas — tanto para o gestor quanto para os liderados','Cria rotinas de comunicação que se sustentam mesmo sob pressão','Time opera com segurança pela transparência da liderança','Referência de comunicação eficiente na operação']},
+t:{1:n=>`${n} apresenta dificuldades sérias de comunicação. Informações não chegam ao time de forma adequada, o reporte para a gestão é raro e reativo, e os ruídos são frequentes no setor.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} desenvolva rotinas de comunicação mais estruturadas — garantindo que orientações, atualizações e resultados cheguem de forma clara e no tempo certo, sem esperar ser cobrado.`,
+2:n=>`${n} comunica o básico, mas sem estrutura ou consistência. O reporte acontece principalmente quando cobrado e as orientações chegam ao time de forma incompleta ou tardia.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} evolua para uma comunicação mais proativa — reportando de forma regular para a gestão e garantindo que o time esteja sempre bem informado.`,
+3:n=>`${n} tem comunicação clara e estruturada, que gera visibilidade real para a gestão. Não esconde os problemas — tanto para o gestor quanto para os liderados — e o time opera com segurança pela transparência. [EXEMPLO] Comunicação que funciona como ferramenta de gestão.`,
+4:n=>`${n} tem comunicação clara, estruturada e que gera visibilidade real para a gestão. Não esconde os problemas — tanto para cima quanto para baixo — e criou rotinas que se sustentam mesmo sob pressão. [EXEMPLO] O time opera com segurança pela transparência da liderança.`}},
+
+{tag:'Comportamental 4/5',title:'Adaptabilidade e Abertura a Mudanças',
+def:'Adapta-se a mudanças de estratégia, prioridades ou processos, demonstra abertura a novas ideias e conduz a equipe com segurança durante períodos de transição.',
+c:{1:['Demonstra resistência aberta a mudanças de estratégia ou processo','Transfere o desconforto com mudanças para a equipe de forma recorrente','Não conduz o time com segurança durante transições','Comportamento amplifica a instabilidade nos momentos de mudança','Postura negativa impacta o clima do setor'],2:['Aceita as mudanças, mas com sinais de resistência que chegam à equipe','Conduz transições sem clareza ou segurança suficiente','Adaptação lenta e dependente de muito suporte da gestão acima','Não demonstra abertura a novas ideias de forma consistente','Impacto das mudanças no setor maior do que deveria ser'],3:['Adapta-se a mudanças com maturidade','Conduz a equipe com segurança durante as transições','Às vezes contraria no início, mas uma vez a decisão tomada, assume e entrega','Demonstra abertura a novas ideias de forma consistente','Time tem estabilidade mesmo em momentos de mudança'],4:['Adapta-se com maturidade e segurança — inclusive quando não concorda de início','Uma vez a decisão tomada da empresa, assume com convicção e conduz o time com clareza','Demonstra abertura genuína a novas ideias','Referência de adaptabilidade na operação','Time passa por transições com mínimo impacto']},
+t:{1:n=>`${n} demonstra resistência a mudanças que impacta diretamente a equipe. O time percebe o desconforto da liderança e fica instável nos momentos de transição, o que amplifica o impacto no desempenho do setor.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} desenvolva maior maturidade diante de mudanças — conduzindo o time com segurança durante as transições, independente da opinião pessoal sobre elas.`,
+2:n=>`${n} aceita as mudanças, mas ainda com sinais de resistência que chegam à equipe. A condução durante transições precisa de mais segurança e clareza para minimizar o impacto no desempenho.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} desenvolva maior agilidade na adaptação — conduzindo a equipe com mais segurança e envolvendo o time no processo de forma mais estruturada.`,
+3:n=>`${n} adapta-se a mudanças com maturidade. Às vezes pode não concordar no início, mas uma vez tomada a decisão da empresa, assume e conduz o time com segurança. [EXEMPLO] Demonstra abertura genuína a novas ideias — inclusive as que chegam de dentro da própria equipe.`,
+4:n=>`${n} costumo se adaptar com maturidade e segurança durante os períodos de transição. Em algumas vezes pode não concordar de início, mas uma vez a decisão tomada, é a decisão da empresa — e assume com convicção. [EXEMPLO] Essa postura passa segurança para o time e minimiza o impacto das transições no desempenho.`}},
+
+{tag:'Comportamental 5/5',title:'Autodesenvolvimento',
+def:'Investe de forma contínua no próprio desenvolvimento, amplia sua visão do negócio e aplica esse aprendizado na melhoria da área, preparando-se para desafios de maior complexidade.',
+c:{1:['Não demonstra interesse em se desenvolver além da função atual','Não busca ampliar conhecimento sobre o negócio','Atuação permanece estagnada no ciclo','Não aplica aprendizados na melhoria da área','Postura de acomodação limita o crescimento da liderança e do setor'],2:['Demonstra interesse em crescer, mas sem esforço concreto e sustentado','Aprendizado pontual, não aplicado consistentemente','Desenvolvimento esporádico e não sustentado no ciclo','Falta iniciativa para buscar conhecimento além do demandado','A intenção existe, mas não se traduz em evolução visível'],3:['Investe de forma consistente no próprio desenvolvimento','Amplia conhecimento sobre o negócio de forma proativa','Aplica o aprendizado na melhoria da área sob sua responsabilidade','Evolução visível ao longo do ciclo como liderança','Não espera ser demandado para buscar desenvolvimento'],4:['Trata o autodesenvolvimento como parte da rotina de liderança','Busca conhecimento de maneira sistemática e aplica com impacto real na área','Referência de crescimento e desenvolvimento para outros líderes','Evolução consistente e perceptível a cada ciclo','Prepara-se ativamente para assumir desafios de maior complexidade']},
+t:{1:n=>`${n} não demonstra investimento consistente no próprio desenvolvimento. A atuação permanece estagnada no ciclo, sem evolução visível como liderança e sem aplicação de aprendizados na melhoria da área.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} assuma uma postura mais ativa no próprio desenvolvimento — buscando ampliar a visão do negócio e aplicando o aprendizado na melhoria da sua atuação e do setor.`,
+2:n=>`${n} sinaliza interesse em crescer, mas ainda sem evidências concretas de esforço sustentado. O aprendizado existe de forma pontual, mas não é aplicado consistentemente na melhoria da área.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} transforme a intenção em ação — investindo de forma mais consistente no próprio desenvolvimento e aplicando o aprendizado na prática, com impacto visível na sua atuação.`,
+3:n=>`${n} investe de forma consistente no próprio desenvolvimento. Busca ampliar o conhecimento sobre o negócio de forma proativa e aplica o aprendizado na melhoria da área. [EXEMPLO] A evolução é visível ao longo do ciclo como liderança.`,
+4:n=>`${n} trata o autodesenvolvimento como parte da rotina de liderança. Busca conhecimento de maneira sistemática e aplica com impacto real na área. [EXEMPLO] Como exemplo, as iniciativas desenvolvidas com novas ferramentas e tecnologias que geraram resultado concreto para a operação.`}}
+];
+
+// ── COMPETÊNCIAS LIDERADOS — COMPORTAMENTAIS ─────────────────────────────────
+// Tom: mais sucinto, direto, sem enrolação
+const CLD=[
+{tag:'Comportamental 1/5',title:'Disciplina e Compromisso',
+def:'Cumpre horários, regras, normas de segurança e orientações da liderança?',
+c:{1:['Falta ou atrasa com regularidade, mesmo após orientação formal','Descumpre normas de segurança de forma recorrente','Ignora ou reage negativamente às orientações da liderança','Precisa ser lembrado das mesmas regras repetidamente','Postura impacta o ritmo e o clima da equipe ao redor'],2:['Cumpre horários e normas quando observado, oscila na rotina','Segue orientações após reforço direto, raramente por conta própria','Comprometimento aparece no pico, some na rotina','Já recebeu orientações sobre os mesmos pontos mais de uma vez no ciclo','Não descumpre abertamente, mas não mantém o padrão de forma autônoma'],3:['Cumpre horários, normas e orientações de forma consistente','Mantém o padrão com ou sem a liderança por perto','Não repete as mesmas falhas','É um colaborador em quem a liderança pode confiar na rotina','Segue as regras do setor sem precisar ser lembrado'],4:['Mantém padrão elevado de disciplina em qualquer contexto','Cobra postura dos colegas de forma respeitosa e natural','Antecipa desvios de processo e sinaliza antes de virar problema','Presença eleva o padrão de comprometimento da equipe ao redor','Zero ocorrências de descumprimento de norma no ciclo']},
+t:{1:n=>`${n} tem dificuldades recorrentes de disciplina. Faltas, atrasos e descumprimento de orientações são sistemáticos e o padrão não evoluiu mesmo após orientações formais.\n\nPonto de desenvolvimento: Disciplina e comprometimento são inegociáveis na operação. No próximo ciclo, é esperada melhora concreta — redução de ocorrências e manutenção do padrão independente da presença da liderança.`,
+2:n=>`${n} demonstra comprometimento quando está sendo acompanhado de perto, mas não sustenta isso na rotina. Os mesmos pontos precisam ser reforçados com frequência.\n\nPonto de desenvolvimento: O desafio no próximo ciclo é manter o mesmo padrão com ou sem a liderança por perto. Disciplina consistente é o que diferencia um profissional confiável.`,
+3:n=>`${n} demonstra disciplina e comprometimento consistentes. Cumpre horários, segue as normas do setor e mantém postura alinhada sem precisar ser cobrado. [EXEMPLO] É um profissional em quem a liderança pode confiar na rotina.`,
+4:n=>`${n} é referência de disciplina e comprometimento na equipe. Mantém o padrão em qualquer contexto, cobra colegas com respeito e antecipa desvios antes de virarem problema. [EXEMPLO] Presença que eleva o padrão da equipe ao redor.`}},
+
+{tag:'Comportamental 2/5',title:'Postura e Trabalho em Equipe',
+def:'Mantém postura respeitosa e contribui para um ambiente corporativo e harmonioso?',
+c:{1:['Gera conflitos com colegas ou liderança de forma recorrente','Comportamento inadequado no ambiente de trabalho','Recusa colaboração com outros, mesmo quando a necessidade é clara','Já foi orientado sobre postura e não demonstrou evolução','Comportamento afeta o clima do setor'],2:['Mantém postura aceitável na presença da liderança, mas gera atritos pontuais','Colabora quando solicitado diretamente, raramente por iniciativa','Não cria conflitos graves, mas também não contribui para o clima','Relacionamento com a equipe é superficial e pouco cooperativo','Engajamento com o coletivo depende de cobrança'],3:['Mantém postura respeitosa com colegas e liderança de forma consistente','Colabora sem precisar ser solicitado quando há necessidade','Não gera atritos e contribui para um ambiente tranquilo','Bem integrado à equipe, independente do turno ou departamento','Reage bem à pressão sem comprometer o relacionamento'],4:['Referência de postura e trabalho em equipe no setor','Apoia colegas espontaneamente, especialmente nos picos','Facilita a integração de novos colaboradores sem ser solicitado','Presença melhora o ambiente ao redor de forma perceptível','Contribui ativamente para o clima positivo mesmo nos dias difíceis']},
+t:{1:n=>`${n} tem dificuldades recorrentes de postura e relacionamento. Conflitos, comportamento inadequado e resistência à colaboração são sistemáticos e impactam o clima do setor.\n\nPonto de desenvolvimento: No próximo ciclo, é esperada melhora clara no relacionamento com colegas e liderança — com redução de atritos e maior disposição para colaborar.`,
+2:n=>`${n} mantém postura aceitável no geral, mas gera atritos pontuais e colabora pouco de forma espontânea.\n\nPonto de desenvolvimento: Trabalho em equipe vai além de não criar conflito. No próximo ciclo, o esperado é uma postura mais colaborativa e contribuição mais ativa para o clima do setor.`,
+3:n=>`${n} mantém boa postura e relacionamento consistente com a equipe. Colabora quando há necessidade e não gera atritos. [EXEMPLO] É um profissional com quem a equipe trabalha bem.`,
+4:n=>`${n} é referência de postura e trabalho em equipe. Apoia colegas espontaneamente, contribui para o clima mesmo sob pressão e facilita a integração de quem chega no setor. [EXEMPLO]`}},
+
+{tag:'Comportamental 3/5',title:'Abertura a Feedback e Melhoria',
+def:'Aceita orientação e corrige seu comportamento quando direcionado?',
+c:{1:['Reage de forma defensiva a feedbacks de forma recorrente','Repete os mesmos erros mesmo após orientação formal','Questiona cobranças de forma inadequada e sem abertura real','Não aplica as correções recebidas de forma sustentada','Gera desgaste para a liderança ao longo do ciclo'],2:['Aceita o feedback no momento, mas não mantém a correção ao longo do tempo','Muda o comportamento temporariamente, volta ao padrão anterior','Recebe orientação sem resistência aberta, mas com baixo engajamento real','Precisa ser corrigido nas mesmas situações com frequência','A absorção das orientações ainda é superficial'],3:['Recebe feedbacks com maturidade e sem defensividade','Aplica as correções e mantém o novo padrão ao longo do tempo','Não repete os mesmos erros com frequência','Demonstra abertura real e interesse em melhorar','Evolução visível a partir das orientações recebidas no ciclo'],4:['Busca orientação ativamente antes de errar','Aplica feedbacks com agilidade e de forma duradoura','Compartilha aprendizados com colegas','Evolução vai além do que foi solicitado','Usa os feedbacks como alavanca de crescimento']},
+t:{1:n=>`${n} tem dificuldade sistemática em receber e aplicar feedbacks. Reage com defensividade e repete os mesmos erros mesmo após correções formais.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} receba orientações com mais maturidade e aplique as correções de forma duradoura — sem precisar ser corrigido nas mesmas situações repetidamente.`,
+2:n=>`${n} aceita o feedback no momento, mas não sustenta a correção ao longo do tempo. Os mesmos pontos precisam ser retomados com frequência.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} aplique as orientações de forma duradoura. A evolução precisa se sustentar, não ser só situacional.`,
+3:n=>`${n} recebe feedbacks com maturidade e aplica as correções de forma consistente. Não repete os mesmos erros com frequência e demonstra abertura real para melhorar. [EXEMPLO]`,
+4:n=>`${n} tem boa abertura a feedback e evolução concreta ao longo do ciclo. Busca orientação antes de errar, aplica com agilidade e vai além do que é solicitado. [EXEMPLO]`}},
+
+{tag:'Comportamental 4/5',title:'Colaboração e Participação Ativa',
+def:'Oferece ajuda de forma espontânea a colegas, líderes ou outras áreas quando necessário, demonstrando postura positiva e sem resistência?',
+c:{1:['Recusa colaboração mesmo quando a necessidade é evidente','Foco exclusivo nas próprias tarefas, ignora o contexto coletivo','Reage negativamente quando solicitado a apoiar outra área ou colega','Postura individualista impacta o resultado da equipe de forma recorrente','Não demonstra interesse no resultado coletivo'],2:['Ajuda quando solicitado diretamente, mas nunca por iniciativa própria','Colaboração existe apenas em situações de pressão ou cobrança','Participação nas atividades coletivas é passiva','Foco excessivo na própria tarefa, mesmo quando a equipe precisa de apoio','Disposição existe, mas não se traduz em ação espontânea'],3:['Oferece ajuda espontânea quando percebe necessidade na equipe','Participa das atividades coletivas sem precisar ser solicitado','Demonstra interesse no resultado do setor, não só na tarefa individual','Colabora sem resistência quando necessário','Presença contribui para o resultado coletivo de forma consistente'],4:['Antecipa necessidades da equipe e age antes de ser solicitado','Referência de colaboração no setor','Apoia outras áreas com postura positiva','Participação ativa eleva o resultado coletivo de forma perceptível','É o tipo de profissional que a equipe busca quando precisa de apoio']},
+t:{1:n=>`${n} tem postura individualista de forma sistemática. Foca nas próprias tarefas e não colabora com a equipe, mesmo quando a necessidade é evidente.\n\nPonto de desenvolvimento: Na operação, o resultado é coletivo. No próximo ciclo, é esperado que ${n} desenvolva postura mais colaborativa e interesse real no resultado da equipe.`,
+2:n=>`${n} colabora quando solicitado, mas raramente age por iniciativa própria. A participação nas atividades coletivas ainda é passiva.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é uma postura mais proativa — oferecendo ajuda antes de ser solicitado e participando de forma mais ativa das atividades do setor.`,
+3:n=>`${n} colabora de forma espontânea com a equipe. Oferece ajuda quando percebe necessidade e demonstra interesse no resultado do setor além da tarefa individual. [EXEMPLO]`,
+4:n=>`${n} é referência de colaboração no setor. Antecipa necessidades da equipe, age antes de ser solicitado e apoia outras áreas sem resistência. [EXEMPLO]`}},
+
+{tag:'Comportamental 5/5',title:'Preparação para Crescimento',
+def:'Busca aprender novas atividades, assumir desafios adicionais e investir no próprio desenvolvimento, visando futuras oportunidades internas.',
+c:{1:['Não demonstra interesse em aprender funções além da atual','Recusa desafios adicionais quando oferecidos','Não investe no próprio desenvolvimento de nenhuma forma no ciclo','Postura de acomodação limita o aproveitamento interno','Sem perspectiva de crescimento dentro da operação'],2:['Demonstra interesse verbal em crescer, mas sem esforço concreto','Aceita novos desafios quando pressionado, mas sem engajamento real','Aprendizado de novas funções é lento e depende de muita orientação','A intenção existe, mas não se traduz em ação consistente','Evolução no ciclo abaixo do potencial demonstrado'],3:['Demonstra interesse real em aprender novas atividades','Aceita desafios adicionais com disposição e sem resistência','Investe no próprio desenvolvimento de forma visível no ciclo','Evolução concreta em novas competências ou funções no período','Perfil com potencial de aproveitamento interno identificado'],4:['Busca aprender além do que é solicitado ou oferecido','Já domina mais de uma função dentro da operação','Investe em desenvolvimento por conta própria','Referência de crescimento para os colegas','Perfil com alto potencial de aproveitamento interno a curto prazo']},
+t:{1:n=>`${n} não demonstra interesse em crescer além da função atual. Não busca aprender novas atividades e recusa desafios quando oferecidos.\n\nPonto de desenvolvimento: No próximo ciclo, é esperado que ${n} demonstre interesse concreto em se desenvolver — buscando aprender novas funções e investindo no próprio crescimento dentro da operação.`,
+2:n=>`${n} sinaliza vontade de crescer, mas ainda sem evidências concretas de esforço. A intenção existe, mas não se traduz em ação.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} transforme a intenção em ação — buscando aprender além do que é solicitado e avançando nas funções que já tem acesso.`,
+3:n=>`${n} demonstra interesse real em crescer dentro da operação. Busca aprender novas atividades, aceita desafios com disposição e apresenta evolução concreta no ciclo. [EXEMPLO] Perfil com potencial claro de aproveitamento interno.`,
+4:n=>`${n} busca aprender além do que é oferecido. Já domina mais de uma função na operação e é referência de crescimento para os colegas. [EXEMPLO] Perfil com alto potencial de aproveitamento interno a curto prazo.`}}
+];
+
+// ── TÉCNICAS ─────────────────────────────────────────────────────────────────
+function tgen(dep){return[
+{tag:'Técnica 1/3',title:'Qualidade e Conformidade de Processo',def:`Executa as atividades seguindo padrão, evitando retrabalho, erros ou desvios? (${dep})`,
+c:{1:['Erros recorrentes nas atividades sob sua responsabilidade','Não segue os procedimentos estabelecidos de forma sistemática','Erros persistem mesmo após orientação formal','Retrabalho gerado impacta outras áreas ou processos','Entregas incorretas precisam ser refeitas com frequência'],2:['Executa com erros pontuais que precisam de correção','Qualidade oscila conforme o volume do dia','Segue os procedimentos com supervisão, comete desvios quando não está sendo observado','Entrega o básico, mas sem o rigor necessário','Nível de atenção ainda abaixo do esperado para o cargo'],3:['Executa com qualidade e dentro do padrão com consistência','Raramente gera erros que demandam retrabalho','Segue os procedimentos de forma autônoma','Mantém qualidade tanto no pico quanto na rotina','É um colaborador confiável nas atividades sob sua responsabilidade'],4:['Executa com alto nível de precisão e mínimos erros','Identifica inconsistências e sinaliza antes de gerar problema','Referência de qualidade e conformidade na área','Contribui para a melhoria dos processos com base no que observa','Nível de conformidade acima do esperado para o cargo']},
+t:{1:(n,d)=>`${n} tem erros frequentes e sistemáticos nas atividades de ${d}. Falhas recorrentes geram retrabalho e o padrão não evoluiu mesmo após orientações formais.\n\nPonto de desenvolvimento: No próximo ciclo, é esperada redução concreta de erros e maior atenção ao rigor dos processos, independente do volume do dia.`,
+2:(n,d)=>`${n} executa as atividades de ${d} com qualidade oscilante. Erros pontuais ainda são frequentes, especialmente quando o volume aumenta ou a supervisão diminui.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} eleve o nível de atenção e execute com mais consistência, independente da supervisão.`,
+3:(n,d)=>`${n} executa as atividades de ${d} com qualidade e conformidade consistentes. Raramente gera retrabalho, segue os procedimentos de forma autônoma e mantém o padrão independente do volume. [EXEMPLO]`,
+4:(n,d)=>`${n} executa com alto nível de precisão em ${d}. Mínimos erros no período, identifica inconsistências antes de gerarem problema e contribui para a melhoria dos processos. [EXEMPLO]`}},
+{tag:'Técnica 2/3',title:'Produtividade e Entrega',def:`Entrega o volume esperado com constância e dentro dos prazos estabelecidos? (${dep})`,
+c:{1:['Não entrega as demandas dentro dos prazos de forma sistemática','Acúmulo de pendências recorrente','Ritmo abaixo do mínimo mesmo em volume normal','Precisa de cobrança constante para manter o fluxo','Desempenho compromete processos que dependem da sua área'],2:['Entrega dentro do prazo apenas quando há cobrança ou pressão','Acúmulo de pendências quando o volume aumenta','Não sustenta produtividade sem supervisão próxima','Inconsistência de ritmo é frequente no ciclo','Entrega no limite, com apoio da liderança'],3:['Entrega as demandas dentro dos prazos de forma consistente','Gerencia o volume de forma organizada, sem acúmulo de pendências','Produtividade não depende de supervisão constante','Ritmo estável tanto no pico quanto na rotina','As áreas que dependem da sua entrega podem contar com ela'],4:['Supera o volume esperado com regularidade, sem comprometer a qualidade','Antecipa demandas e organiza as entregas com visão de prioridade','Referência de produtividade e organização na área','Contribui para que processos dependentes funcionem sem atraso','Desempenho acima do esperado de forma consistente']},
+t:{1:(n,d)=>`${n} não entrega as demandas de ${d} dentro dos prazos de forma consistente. O acúmulo de pendências é recorrente e impacta outras áreas.\n\nPonto de desenvolvimento: No próximo ciclo, é esperada melhora concreta no cumprimento dos prazos e no ritmo de trabalho, sem depender de supervisão para manter o fluxo.`,
+2:(n,d)=>`${n} entrega dentro do prazo em momentos de pressão, mas não sustenta isso na rotina. O acúmulo de pendências em ${d} é frequente quando o volume aumenta.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} gerencie as demandas com mais organização e entregue dentro dos prazos de forma consistente, independente da pressão do dia.`,
+3:(n,d)=>`${n} entrega as demandas de ${d} dentro dos prazos de forma consistente. Organiza bem o volume, sem acúmulo de pendências, e não precisa de supervisão constante para manter o ritmo. [EXEMPLO]`,
+4:(n,d)=>`${n} supera o volume esperado com regularidade em ${d} e antecipa demandas com visão de prioridade. Contribui para que os processos que dependem da sua entrega funcionem sem atraso. [EXEMPLO]`}},
+{tag:'Técnica 3/3',title:'Uso de Ferramentas e Sistemas',def:`Utiliza corretamente as ferramentas, equipamentos e sistemas exigidos pela função? (${dep})`,
+c:{1:['Usa as ferramentas e sistemas de forma incorreta de forma recorrente','Precisa de suporte constante para o básico','Erros no uso geram retrabalho para a equipe','Não demonstrou evolução no domínio das ferramentas ao longo do ciclo','Uso inadequado gera risco ou retrabalho'],2:['Usa as ferramentas com erros pontuais','Ainda depende de suporte para situações que já deveria dominar','Domínio funcional, mas abaixo do nível esperado para o cargo','Melhora com orientação, cai quando está sozinho','Dependência de suporte ainda acima do aceitável'],3:['Usa as ferramentas e sistemas com autonomia e dentro do padrão','Opera com precisão nas atividades do cargo','Não precisa de suporte constante no dia a dia','Reporta falhas ou inconsistências quando identifica','Domínio adequado ao cargo'],4:['Domina as ferramentas e sistemas com alto nível de autonomia e precisão','Identifica inconsistências antes de gerarem problema','Apoia colegas com dificuldade no uso','Referência no uso correto e eficiente dos recursos da área','Nível de domínio acima do esperado para o cargo']},
+t:{1:(n,d)=>`${n} tem dificuldades recorrentes no uso das ferramentas e sistemas de ${d}. Erros frequentes geram retrabalho e a dependência de suporte não reduziu ao longo do ciclo.\n\nPonto de desenvolvimento: No próximo ciclo, é esperada melhora concreta no domínio das ferramentas da área, com redução de erros e menor dependência de suporte.`,
+2:(n,d)=>`${n} usa as ferramentas de ${d} com erros pontuais e ainda precisa de suporte para situações que já deveria dominar.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} desenvolva maior autonomia no uso das ferramentas, reduzindo a dependência de suporte para o dia a dia.`,
+3:(n,d)=>`${n} usa as ferramentas e sistemas de ${d} com autonomia e dentro do padrão. Opera com precisão, não precisa de suporte constante e reporta inconsistências quando identifica. [EXEMPLO]`,
+4:(n,d)=>`${n} domina as ferramentas de ${d} com alto nível de autonomia e precisão. Identifica inconsistências antes de gerarem problema e apoia colegas com dificuldade. [EXEMPLO]`}}
+];}
+
+function getTec(dep){
+const RFID=['Manipulação - RFID','Manipulação - Loja','Manipulação','Omni Penha'];
+const EXP=['Expedição'];
+if(EXP.includes(dep))return[
+{tag:'Técnica 1/3',title:'Qualidade e Conformidade de Processo',def:`Executa as atividades seguindo padrão, evitando retrabalho, erros ou desvios? (${dep})`,
+c:{1:['Fecha cargas com erros frequentes de conferência ou romaneio','Libera veículos sem checagem completa de documentação','Gera divergências que impactam a entrega ao cliente de forma recorrente','Erros persistem mesmo após orientação formal','Retrabalho frequente no setor'],2:['Confere as cargas com erros pontuais','Libera veículos sem conferência completa sob pressão','Qualidade oscila conforme o volume do dia','Nível de atenção ainda abaixo do esperado para o processo','Gera divergências ocasionais que demandam revisão'],3:['Fecha cargas dentro do padrão com consistência','Confere romaneio, volumes e documentação antes de liberar o veículo','Raramente gera divergências ou retrabalho','Qualidade se mantém tanto no pico quanto na rotina','Executa com atenção e autonomia adequadas ao cargo'],4:['Identifica inconsistências antes de fechar a carga e sinaliza','Zero ou mínimas divergências no período','Referência de qualidade e conformidade na expedição','Contribui para a melhoria do processo com base no que observa','Nível de conformidade acima do esperado']},
+t:{1:n=>`${n} tem erros frequentes no processo de expedição. Cargas fechadas com divergências, conferências incompletas e falhas no romaneio são recorrentes e geram retrabalho e impacto na entrega.\n\nPonto de desenvolvimento: No próximo ciclo, é esperada redução concreta de erros e maior atenção ao processo de conferência e fechamento de cargas.`,
+2:n=>`${n} executa o processo com qualidade oscilante. Erros pontuais na conferência e no fechamento de cargas geram retrabalho evitável.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} mantenha o mesmo nível de atenção independente do volume do dia.`,
+3:n=>`${n} fecha cargas dentro do padrão com consistência. Confere documentação antes de liberar os veículos e raramente gera divergências. [EXEMPLO] É um colaborador confiável no processo de expedição.`,
+4:n=>`${n} é referência de qualidade na expedição. Identifica inconsistências antes de fechar a carga, mínimas divergências no período e contribui com observações que melhoram o processo. [EXEMPLO]`}},
+{tag:'Técnica 2/3',title:'Produtividade e Entrega',def:'Entrega o volume esperado com constância e dentro dos prazos estabelecidos? (Expedição)',
+c:{1:['Não atinge o volume esperado de fechamento de cargas no turno','Ritmo abaixo do mínimo mesmo em volume normal','Gera gargalo na doca por baixa produtividade','Precisa de cobrança constante para manter o ritmo mínimo','Desempenho impacta os prazos de saída dos veículos'],2:['Atinge o volume esperado apenas quando há cobrança ou pressão','Ritmo oscila — sobe na cobrança, cai na rotina','Não sustenta produtividade sem supervisão','Entrega no limite, com apoio da equipe','Inconsistência de ritmo frequente no ciclo'],3:['Atinge o volume esperado de forma consistente no turno','Mantém ritmo estável no pico e na rotina','Cumpre os prazos de fechamento e liberação de veículos','Produtividade não depende de supervisão constante','Executa com autonomia adequada ao cargo'],4:['Supera o volume esperado com regularidade','Sustenta ritmo elevado mesmo nos dias de maior pressão','Contribui para que a equipe cumpra os prazos como um todo','Referência de produtividade e entrega na expedição','Desempenho acima do esperado de forma consistente']},
+t:{1:n=>`${n} não atinge o volume esperado de forma consistente na expedição. O ritmo abaixo do mínimo gera gargalo na doca e compromete os prazos de saída.\n\nPonto de desenvolvimento: No próximo ciclo, é esperada melhora concreta no volume entregue e no ritmo de trabalho, sem depender de supervisão constante para manter o padrão.`,
+2:n=>`${n} atinge o volume em momentos de pressão, mas não sustenta o ritmo na rotina. A produtividade oscila e ainda depende de cobrança.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} mantenha produtividade estável independente da pressão do dia.`,
+3:n=>`${n} mantém produtividade consistente na expedição. Atinge o volume esperado no turno, cumpre os prazos e não precisa de supervisão constante para manter o ritmo. [EXEMPLO]`,
+4:n=>`${n} supera o volume esperado com regularidade na expedição. Sustenta ritmo elevado mesmo sob pressão e contribui para que a equipe cumpra os prazos. [EXEMPLO] Referência de produtividade no setor.`}},
+{tag:'Técnica 3/3',title:'Uso de Ferramentas e Sistemas',def:'Utiliza corretamente as ferramentas, equipamentos e sistemas exigidos pela função? (Expedição)',
+c:{1:['Opera equipamentos da doca de forma incorreta ou sem segurança','Não utiliza o sistema de conferência e romaneio adequadamente','Erros recorrentes no uso das ferramentas do setor','Precisa de suporte constante para o básico','Uso inadequado gera risco ou retrabalho'],2:['Utiliza as ferramentas com erros pontuais','Precisa de suporte com frequência para situações que já deveria dominar','Uso funcional, mas abaixo do nível esperado','Domínio melhora com supervisão, cai quando está sozinho','Dependência de suporte acima do aceitável'],3:['Opera os equipamentos da doca e usa o sistema de conferência corretamente','Usa as ferramentas com autonomia e sem suporte constante','Registra informações no sistema de forma precisa','Domínio adequado para o cargo','Reporta falhas de equipamento quando identifica'],4:['Domina todas as ferramentas e sistemas da expedição com segurança','Apoia colegas com dificuldade no uso dos sistemas','Identifica falhas e sinaliza para a liderança','Referência no uso correto e eficiente das ferramentas','Nível de domínio acima do esperado para o cargo']},
+t:{1:n=>`${n} tem dificuldades recorrentes no uso das ferramentas e sistemas da expedição. Erros na operação dos equipamentos e no sistema de conferência geram retrabalho e risco.\n\nPonto de desenvolvimento: No próximo ciclo, é esperada melhora concreta no uso correto dos equipamentos e sistemas, com redução de erros e necessidade de suporte.`,
+2:n=>`${n} usa as ferramentas da expedição com erros pontuais e ainda precisa de suporte para situações que já deveria dominar.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} desenvolva maior autonomia no uso das ferramentas, reduzindo a dependência de suporte para o dia a dia.`,
+3:n=>`${n} usa os equipamentos da doca e o sistema de conferência corretamente, com autonomia e dentro do padrão. [EXEMPLO] Domínio adequado ao cargo.`,
+4:n=>`${n} domina com segurança todas as ferramentas e sistemas da expedição. Apoia colegas com dificuldade, identifica falhas e é referência no uso correto dos recursos do setor. [EXEMPLO]`}}
+];
+if(RFID.includes(dep))return[
+{tag:'Técnica 1/3',title:'Qualidade e Conformidade de Processo',def:`Executa as atividades seguindo padrão, evitando retrabalho, erros ou desvios? (${dep})`,
+c:{1:['Aplica etiquetas erradas ou em posição incorreta com frequência','Danifica peças, alarmes ou cabides por manuseio inadequado','Não segue o padrão de embalagem ou organização das peças','Erros persistem mesmo após orientação formal','Retrabalho impacta o ritmo e a qualidade da linha'],2:['Etiquetagem e aplicação de alarmes com erros pontuais','Qualidade oscila conforme o ritmo e a pressão da linha','Segue o padrão com supervisão, desvia quando não está sendo observado','Nível de atenção ainda abaixo do esperado para o processo','Manuseio de peças e cabides precisa de mais consistência'],3:['Aplica etiquetas e alarmes corretamente e dentro do padrão com consistência','Manuseia peças, cabides e embalagens com cuidado','Segue o padrão de organização da linha de forma autônoma','Raramente gera retrabalho ou erros que impactam as etapas seguintes','Executa com atenção adequada ao cargo independente do ritmo'],4:['Identifica etiqueta errada ou alarme com defeito antes de avançar na linha','Zero ou mínimos erros de processo no período','Referência de qualidade e conformidade na linha de manipulação','Padrão que mantém contribui para a qualidade das etapas seguintes','Nível de conformidade acima do esperado']},
+t:{1:n=>`${n} tem erros frequentes na linha de manipulação. Etiquetas aplicadas incorretamente, alarmes mal posicionados e danos por manuseio inadequado são recorrentes e geram retrabalho que impacta toda a linha.\n\nPonto de desenvolvimento: No próximo ciclo, é esperada redução concreta de erros e maior atenção ao padrão do processo.`,
+2:n=>`${n} executa com qualidade oscilante. Erros pontuais de etiquetagem e aplicação de alarmes geram retrabalho, especialmente quando o ritmo aumenta ou a supervisão diminui.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} mantenha o mesmo nível de atenção ao processo independente do ritmo da linha.`,
+3:n=>`${n} executa o processo de manipulação e RFID com qualidade e conformidade consistentes. Aplica etiquetas e alarmes dentro do padrão, manuseia as peças com cuidado e raramente gera retrabalho. [EXEMPLO]`,
+4:n=>`${n} é referência de qualidade na linha de manipulação. Identifica etiqueta errada ou alarme com defeito antes de avançar, mínimos erros no período e mantém padrão que contribui para a qualidade de toda a linha. [EXEMPLO]`}},
+{tag:'Técnica 2/3',title:'Produtividade e Entrega',def:`Entrega o volume esperado com constância e dentro dos prazos estabelecidos? (${dep})`,
+c:{1:['Não atinge a meta de peças etiquetadas ou alarmes aplicados no turno','Ritmo abaixo do esperado mesmo em volume normal','Gera gargalo na linha por baixa produtividade','Precisa de cobrança constante para manter o ritmo mínimo','Desempenho impacta o fluxo das etapas seguintes'],2:['Atinge a meta apenas quando há cobrança ou pressão','Ritmo de etiquetagem e aplicação de alarmes oscila muito','Não sustenta produtividade sem supervisão','Entrega no limite, com apoio da equipe','Inconsistência de ritmo frequente no ciclo'],3:['Atinge a meta de peças no turno de forma consistente','Mantém ritmo estável de etiquetagem e aplicação de alarmes','Produtividade não depende de supervisão constante','Contribui para o fluxo da linha sem gerar gargalo','Executa com autonomia adequada ao cargo'],4:['Supera a meta de peças com regularidade sem comprometer a qualidade','Sustenta ritmo elevado mesmo nos dias de maior pressão','Contribui para o resultado da linha além de sua estação','Referência de produtividade na linha de manipulação','Desempenho acima do esperado de forma consistente']},
+t:{1:n=>`${n} não atinge a meta de peças de forma consistente na linha de manipulação. O ritmo abaixo do esperado gera gargalo e impacta as etapas seguintes.\n\nPonto de desenvolvimento: No próximo ciclo, é esperada melhora concreta no volume entregue e na consistência do ritmo, sem depender de supervisão para manter o padrão mínimo.`,
+2:n=>`${n} atinge a meta em momentos de pressão, mas não sustenta o ritmo na rotina. A produtividade na linha de manipulação ainda é inconsistente.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} mantenha ritmo estável independente da pressão do dia.`,
+3:n=>`${n} mantém produtividade consistente na linha de manipulação. Atinge a meta de peças no turno, sustenta ritmo estável e não precisa de supervisão constante para manter o padrão. [EXEMPLO]`,
+4:n=>`${n} supera a meta de peças com regularidade e sustenta ritmo elevado sem comprometer a qualidade. Contribui para o resultado da linha além de sua estação. [EXEMPLO] Referência de produtividade no setor.`}},
+{tag:'Técnica 3/3',title:'Uso de Ferramentas e Sistemas',def:`Utiliza corretamente as ferramentas, equipamentos e sistemas exigidos pela função? (${dep})`,
+c:{1:['Utiliza pistola de RFID, impressora de etiquetas ou aplicador de alarme de forma incorreta','Danifica equipamentos por manuseio inadequado','Precisa de suporte constante para operar os equipamentos básicos da linha','Erros no uso das ferramentas geram retrabalho e impactam a linha','Não demonstrou evolução no domínio dos equipamentos ao longo do ciclo'],2:['Usa os equipamentos com erros pontuais','Ainda depende de suporte para situações que já deveria dominar','Uso funcional, mas abaixo do esperado para o cargo','Domínio melhora com supervisão, cai quando está operando sozinho','Dependência de orientação ainda acima do aceitável'],3:['Opera pistola de RFID, impressora de etiquetas e aplicador de alarme corretamente','Usa os equipamentos com autonomia e sem suporte constante','Mantém os equipamentos em bom estado e reporta falhas quando identifica','Domínio das ferramentas é adequado ao cargo','Reporta necessidade de manutenção com antecedência'],4:['Domina todos os equipamentos da linha com segurança e eficiência','Identifica falhas antes de gerarem problema na linha','Apoia colegas com dificuldade no uso das ferramentas','Referência no uso correto e eficiente dos equipamentos','Nível de domínio acima do esperado para o cargo']},
+t:{1:n=>`${n} tem dificuldades recorrentes no uso dos equipamentos da linha de RFID e manipulação. Erros no uso da pistola, impressora de etiquetas ou aplicador de alarme são frequentes e geram retrabalho.\n\nPonto de desenvolvimento: No próximo ciclo, é esperada melhora concreta no uso correto das ferramentas, com redução de erros e necessidade de suporte.`,
+2:n=>`${n} usa os equipamentos da linha com erros pontuais e ainda precisa de suporte para situações que já deveria dominar.\n\nPonto de desenvolvimento: No próximo ciclo, o esperado é que ${n} desenvolva maior autonomia no uso dos equipamentos, reduzindo a dependência de suporte para o dia a dia.`,
+3:n=>`${n} usa os equipamentos da linha de RFID e manipulação com autonomia e dentro do padrão. Opera pistola, impressora de etiquetas e aplicador de alarme corretamente e não precisa de suporte constante. [EXEMPLO]`,
+4:n=>`${n} domina com segurança todos os equipamentos da linha de RFID e manipulação. Identifica falhas antes de gerarem problema, apoia colegas com dificuldade e é referência no uso correto das ferramentas. [EXEMPLO]`}}
+];
+return tgen(dep);
+}
+
+function getComps(cargo,dep){return LID.includes(cargo)?CL:[...CLD,...getTec(dep)];}
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let S={step:'select',cargo:'',setor:'',dep:'',nome:'',comps:[],notas:{},cur:0};
+let _nomeTimer=null;
+
+// ── RENDER ───────────────────────────────────────────────────────────────────
+function render(){document.getElementById('root').innerHTML=S.step==='select'?rSel():S.step==='eval'?rEv():rSum();}
+
+function rSel(){
+  const st=S.cargo?Object.keys(CARGOS[S.cargo].setores):[];
+  const dp=S.cargo&&S.setor?CARGOS[S.cargo].setores[S.setor]:[];
+  const isL=LID.includes(S.cargo);
+  const ok=S.cargo&&S.setor&&S.dep&&S.nome.trim();
+  const tc=S.cargo?getComps(S.cargo,S.dep||'').length:0;
+  return`<div class="card" style="margin-top:16px;"><div class="sl">Colaborador</div>
+<label class="fl">Nome completo</label>
+<input class="fi" type="text" id="nome-inp" placeholder="Digite o nome do colaborador..." value="${S.nome}" oninput="dNome(this.value)" style="margin-bottom:0;"/>
+</div>
+<div class="card"><div class="sl">Cargo e localização</div>
+<label class="fl">Função / Cargo</label>
+<div class="sw"><select onchange="S.cargo=this.value;S.setor='';S.dep='';render()"><option value="">Selecione o cargo...</option>${Object.keys(CARGOS).map(c=>`<option value="${c}"${S.cargo===c?' selected':''}>${c}</option>`).join('')}</select></div>
+${S.cargo?`<label class="fl">Setor</label><div class="sw"><select onchange="S.setor=this.value;S.dep='';render()"><option value="">Selecione o setor...</option>${st.map(s=>`<option value="${s}"${S.setor===s?' selected':''}>${s}</option>`).join('')}</select></div>`:''}
+${S.setor?`<label class="fl" style="margin-top:12px;">Departamento</label><div class="sw"><select onchange="S.dep=this.value;render()"><option value="">Selecione o departamento...</option>${dp.map(d=>`<option value="${d}"${S.dep===d?' selected':''}>${d}</option>`).join('')}</select></div>`:''}
+</div>
+${ok?`<div class="ir"><span><strong>${isL?'Líder':'Liderado'}</strong> · ${tc} competências · ${isL?'7 de liderança + 5 comportamentais':'5 comportamentais + 3 técnicas'}</span></div>`:''}
+<button class="bp"${ok?'':' disabled'} onclick="stEv()">Iniciar avaliação →</button>`;
+}
+
+// nome com debounce para não re-renderizar a cada tecla
+function dNome(v){
+  S.nome=v;
+  clearTimeout(_nomeTimer);
+  const btn=document.querySelector('.bp');
+  if(btn)btn.disabled=!S.cargo||!S.setor||!S.dep||!v.trim();
+}
+
+function rEv(){
+  const i=S.cur,comp=S.comps[i],nota=S.notas[i];
+  const done=Object.keys(S.notas).length;
+  const pct=Math.round(done/S.comps.length*100);
+  const isL=LID.includes(S.cargo);
+  const dots=S.comps.map((_,j)=>`<div class="dot${j===i?' cr':S.notas[j]?' dn':''}"></div>`).join('');
+  let h=`<div style="padding-top:12px;">
+<div style="margin-bottom:14px;"><div class="pb"><div class="pf" style="width:${pct}%"></div></div>
+<div class="pi"><span class="pt">${done}/${S.comps.length} avaliadas</span><span class="pt">${S.nome} · ${S.dep}</span></div></div>
+<div class="nd">${dots}</div></div>
+<div class="card">
+<div class="cph"><div class="ctg">${comp.tag}</div><div class="ctt">${comp.title}</div><div class="cdf">${comp.def}</div></div>
+<div class="sl">Nota</div>
+<div class="ag">`;
+  [1,2,3,4].forEach((n,j)=>{h+=`<div class="ab${nota==n?' sel':''}" onclick="selN(${i},${n})"><div class="an">${n}</div><div class="alk">${NL[j]}</div><div class="af">${ANC[j]}</div></div>`;});
+  h+=`</div>`;
+  if(nota){
+    h+=`<div class="sl">Critérios — nota ${nota}</div><div class="cb"><ul>`;
+    comp.c[nota].forEach(c=>{h+=`<li>${c}</li>`;});
+    h+=`</ul></div>`;
+    const raw=isL?comp.t[nota](S.nome):(comp.t[nota]?comp.t[nota](S.nome,S.dep):'');
+    const hasEx=nota>=3&&raw.includes('[EXEMPLO]');
+    h+=`<div class="sl">Comentário sugerido</div><div class="cmtxt" id="ctext">`;
+    if(hasEx){const pts=raw.split('[EXEMPLO]');h+=pts[0]+`<span class="ex" contenteditable="true" title="Clique e adicione um exemplo concreto">Adicione um exemplo concreto...</span>`+(pts[1]||'');}
+    else if(raw.includes('Ponto de desenvolvimento:')){const pts=raw.split('Ponto de desenvolvimento:');h+=pts[0]+`<span class="pt2">Ponto de desenvolvimento:</span>`+pts[1];}
+    else{h+=raw;}
+    h+=`</div><button class="bc" id="btn-cp" onclick="cpCmt()">Copiar comentário</button></div>`;
+  }
+  h+=`<div class="nr">`;
+  if(i>0)h+=`<button class="bn" onclick="goTo(${i-1})">← Anterior</button>`;
+  if(nota){if(i<S.comps.length-1)h+=`<button class="bn nx" onclick="goTo(${i+1})">Próxima →</button>`;else h+=`<button class="bn nx" onclick="S.step='summary';render()">Ver resumo →</button>`;}
+  h+=`</div>`;return h;
+}
+
+function rSum(){
+  const vals=S.comps.map((_,i)=>parseInt(S.notas[i]||0)).filter(n=>n>0);
+  const avg=vals.length?(vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(1):'-';
+  const isL=LID.includes(S.cargo);
+  const avgN=parseFloat(avg);
+  const ac=avgN>=3.5?'#0D6E4A':avgN>=2.5?'#1B4FCC':avgN>=1.5?'#B45309':'#C0392B';
+  let h=`<div style="padding-top:16px;text-align:center;margin-bottom:16px;">
+<div style="font-size:11px;color:#A09D97;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;">Avaliação concluída</div>
+<div style="font-size:17px;font-weight:600;color:#1A1917;margin-bottom:2px;">${S.nome}</div>
+<div style="font-size:12px;color:#6B6860;margin-bottom:10px;">${S.cargo} · ${S.setor} · ${S.dep}</div>
+<span style="display:inline-block;padding:4px 16px;background:${ac}20;color:${ac};border-radius:99px;font-size:13px;font-weight:600;font-family:'DM Mono',monospace;">Média geral: ${avg}</span>
+</div>
+<div class="card"><div class="sl">${isL?'Competências de Liderança':'Competências Comportamentais'}</div>`;
+  const cc=isL?S.comps:S.comps.slice(0,5);
+  const ct=isL?[]:S.comps.slice(5);
+  cc.forEach((c,i)=>{const n=S.notas[i];if(!n)return;h+=`<div class="sr"><div class="sc"><div class="scn">${c.title}</div><div class="sct">${c.tag}</div></div><span class="np np${n}">${n} — ${NL[parseInt(n)-1]}</span></div>`;});
+  if(ct.length){h+=`</div><div class="card"><div class="sl">Competências Técnicas</div>`;ct.forEach((c,j)=>{const i=j+5;const n=S.notas[i];if(!n)return;h+=`<div class="sr"><div class="sc"><div class="scn">${c.title}</div><div class="sct">${c.tag}</div></div><span class="np np${n}">${n} — ${NL[parseInt(n)-1]}</span></div>`;});}
+  h+=`</div><div class="nr" style="margin-top:4px;"><button class="bn" onclick="S.step='eval';S.cur=0;render()">Revisar avaliação</button><button class="bn nx" onclick="novaAv()">Nova avaliação</button></div>`;return h;
+}
+
+function stEv(){S.comps=getComps(S.cargo,S.dep);S.notas={};S.cur=0;S.step='eval';render();}
+function novaAv(){S={step:'select',cargo:'',setor:'',dep:'',nome:'',comps:[],notas:{},cur:0};render();}
+function selN(i,n){S.notas[i]=n;S.cur=i;render();}
+function goTo(i){S.cur=i;window.scrollTo(0,0);render();}
+function cpCmt(){
+  const el=document.getElementById('ctext');if(!el)return;
+  navigator.clipboard.writeText(el.innerText).then(()=>{
+    const b=document.getElementById('btn-cp');
+    if(b){b.textContent='✓ Copiado!';b.classList.add('ok');setTimeout(()=>{b.textContent='Copiar comentário';b.classList.remove('ok');},1800);}
+  }).catch(()=>{});
+}
+render();
+</script>
+</body>
+</html>
